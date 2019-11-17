@@ -5,3 +5,9 @@ body
     color: deeppink;
     text-decoration:red;
 }
+#container{
+    text-align: justify;
+}
+.div{
+    color: black;
+}
