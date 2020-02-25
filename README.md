@@ -107,3 +107,58 @@ Excluir archivos de ser ignorados:
 ignorar/*
 !ignorar/no_ignorar.jpg   
 !ignorar/no_ignorar
+
+##  README.MD Excelente Practica
+### Herramientas   
+* editor.md   
+* getemoji.com   
+* typora    
+
+### README.MD y markdown
+Es el lugar donde se explica de que se trata el proyecto, como utilizarlo y demas información que se considere importante antes de utilizar el proyecto.   
+Los archivos README.MD son escritos en un lenguaje llamado Markdown, por la extensión MD, que es un estandar de la escritura en diversos sitios.   
+Los README.MD pueden estar en todas las carpetas, pero el mas importante es el que se encuentra en la raiz y ayudan a que los colaboradores sepan informacion importante del proyecto, modulo o sección, puedes crear cualquier archivo con la extension .md pero solo los README los mostrará por defecto gitHub.    
+
+##  Git Rebase: Reorganizando el trabajo realizado   
+El rebase es un comando que permite "fusionar" una rama en la otra sin dejar rastro de donde se hicieron los cambios. Es una mala practica enviar estas ramas al repositorio remoto.   
+Rebase y merge se diferencian en que merge mezcla dos puntos finales de dos Snapshot y en cambio rebase aplica cada uno de los cambios a la rama en la que se hace el rebase.   
+
+##  Git Stash   
+`git stash`  
+`git stash list`: Ver stash   
+`git stash pop`: Traer stash   
+`git stash branch "nombre_rama"`: Colocar stash en una rama   
+`git stash drop`: Borrar stash   
+
+###  Stashed
+Nos sirve para guardar cambios para despues. es una lista de estados que nos guarda algunos cambios que hicimos en Stagging para poder cambiar de rama sin perder el trabajo que todavia no guardamos en un commit.   
+Esto es especialmente util porque hay veces que no se permite cambiar de rama, ya sea por tener cambios sin guardar y no queremos perder ese codigo.   
+El stashed nos permite cambiar de ramas, hacer cambios, trabajar en otras cosas y mas adelante volver al trabajo con los archivos que teniamos en stagging.  
+
+###  Git Stash    
+El comando guarda el trabajo en staging en una lista diseñada para ser temporal llamada stash, para que puedan ser recuperados en el futuro.   
+Par agregar cambios utilizar : `git stash`  
+Podemos poner un mensaje en el stash para diferenciarlos: `git stash save "mensaje identificador"`  
+
+###  Obtener elementos del Stash    
+El stashed se comporta como un stash de datos de tipo LIFO(ultimo en entrar primero en salir), asi podemos acceder al metodo pop.   
+Pop recuperará y sacará de la lista el ultimo estado del stashed y lo insertará en staging area, por lo que es imporante saber en que branch te encuentras para poder recuperarlo, siempre recuperará los cambios en el lugar que lo llamas.   
+`git stash pop`   
+Para aplicar los cambios de un stash especifico y eliminarlo del stash: `git stash pop stash@{num_stash}`   
+Para retomar los cam,bios de una posición especifica del stash: `git stash apply stash@{num_stash}`  
+Donde {num_stash} se obtiene con: `git stash list`  
+
+###  Crear rama con Stash    
+Para crear una rama y aplicar el stash mas reciente: `git stash branch "nombre_rama"`   
+Para crear rama de un stash especifico: `git stash branch "nombre_rama" stash@{num_stash}`   
+Al utilizar estos comandos crearás una rama, te pasarás a ella y tendras el stash especificaso en tu staging area.   
+
+###  Eliminar elementos del Stash    
+Para eliminar los cambios mas recientes (elemento 0) utilizar: `git stash drop`  
+Si se conoce el indice del stash utilizar: `git stash drop stash@{num_stash}`  
+Para eliminar todos los elementos del stash: `git stash clear`  
+
+###  Consideraciones   
+* El cambio mas reciente siempre recibe el valor 0 y los que estaban antes aumentarán su valor.   
+* Al crear un stash tomará los archivos que han sido modificados y eliminados. Para que tome un archivo cuando es necesario agregarlo al staging area con `git add [nombre_archivo]` con la intención de que git tenga un seguimiento de ese archivo, o tambien utilizar el comando `git stasg -u` (guardará en el stash los archivos que no esten en staging)    .
+* Al aplicar un stash este no se elimina, es una practica eliminarlos.   
