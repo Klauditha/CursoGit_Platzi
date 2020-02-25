@@ -83,3 +83,27 @@ Al crear un remoto adicional podremos hacer pull desde el nuevo origen.
 Este pull nos traerá los cambios del remoto por lo que estará al dia en el proyecto, el flujo del trabajo cambia, en adelante se estará trabajando haciendo pull desde el upstream y push al origen para pasar a hacer el pull request.   
 `git pull upstream master`   
 `git push origin master`   
+
+###  Ignorar archivos en el repositorio con .gitignore     
+Por diversas razones, no todos los archivos que agregas a un proyecto deberian guardarse en un repositorio, esto porque hay archivos que al estar en el repositorio alentan el proceso de desarrollo (por ejemplo los binary large object, blob que tardan en descargarse).   
+Para que no se suban estos archivos no deseados se puede crear un archivo con el nombre ".gitignore" en la raiz del repositorio con las reglas para los archivos que no se deberian subir (ver https://git-scm.com/docs/gitignore).   
+Las razones principales para tomar la decision de no agregar un archivos a un repositorio son:   
+* Es un archivo con contraseñas.   
+* Es un blob, que son dificiles de gestionar en git.   
+* Son archivos que se generan corriendo comandos.   
+
+#### Herramientas para almacenar archivos    
+* S3 AWS: https://aws.amazon.com/es/s3.   
+* Imgur.com   
+* git-lfs   
+* https://postimages.org
+
+Para los que no les ignora un archivo:   
+`git -rm -r --chached`   
+`git add.`   
+`git commit -m "comentario"`   
+
+Excluir archivos de ser ignorados:   
+ignorar/*
+!ignorar/no_ignorar.jpg   
+!ignorar/no_ignorar
