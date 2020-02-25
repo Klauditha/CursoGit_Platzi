@@ -68,4 +68,9 @@ El flujo es el siguiente:
 * Se aceptan los cambios en Github.   
 * Se hace el merge al master desde Github.   
 
-
+###  Creando un Fork   
+O bifurcación es una caracteristica unica de Github en la que se crea una copia exacta del estado actual de un repositorio directamente en Github, este repositorio podra servir como otro origen y se podrá clonar (como cualquier otro repositorio).   
+un fork es como una bifurcación del repositorio completo, tiene una historia en comun, pero derrepente se bifurcan y pueden variar los cambios ya que ambos proyectos podrán ser modificados en paralelo y para estar al dia un colaborador tendra que estar actualizacndo su fork con la información del original.   
+Al hacer un fork de un proyecto en Github, te conviertes en dueño del repositorio fork, puedes trabajar en este con todos los permisos, pero es un repositorio completamente diferente, teniendo alguna historia en comun.   
+Los  forks son importantes porque es la manera en que funciona el OpenSource, ya que una persona puede no ser colaborador de un proyecto, pero puedes contribuir al mismo haciendo mejor SW que pueda ser utilizado por cualquiera.   
+Al hacer un fork, GitHub sabe que se hizo el fork del proyecto, por lo que se le permite al colaborador hacer pull request desde su repositorio.   
