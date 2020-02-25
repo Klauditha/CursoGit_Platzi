@@ -162,3 +162,13 @@ Para eliminar todos los elementos del stash: `git stash clear`
 * El cambio mas reciente siempre recibe el valor 0 y los que estaban antes aumentarán su valor.   
 * Al crear un stash tomará los archivos que han sido modificados y eliminados. Para que tome un archivo cuando es necesario agregarlo al staging area con `git add [nombre_archivo]` con la intención de que git tenga un seguimiento de ese archivo, o tambien utilizar el comando `git stasg -u` (guardará en el stash los archivos que no esten en staging)    .
 * Al aplicar un stash este no se elimina, es una practica eliminarlos.   
+
+##  Git Clean
+`git clean --dry -run`: Ver que se va a borrar.   
+`git clean -f`: Borrar.   
+`git clean -f -d`: Borrar directorios.   
+`git clean -f -x`: Ignorar gitignore.   
+
+Para borrar archivos trackeados:
+`git rm --cached "nombre_archivo"`: los pasa a estado untracked.   
+`git rm --force "nombre_archivo"`: borrarlos directamente.   
