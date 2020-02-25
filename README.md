@@ -3,12 +3,13 @@
 ## Comandos Generales
 `pwd`: Para ver donde estoy en la consola   
 `ls -s`: Listar carpetas   
-`git congif -l` : Ver configuración   
-`git congif --global user.mail "correo"` : Actualizar correo electronico
+`git config -l` : Ver configuración   
+`git config --global user.mail "correo"` : Actualizar correo electronico
 `git config --global --unser user.mailo` : Para borrar parametro mal ingresado
 `git remote -v`: Ver url remota
 `git commit -am ""` 
 `history` : Muestra el listado de comandos utilizados.   
+`ESC+ SHIFT+ZZ` : Volver a la consola git.   
 
 ## Comandos Llaves SSH en local
 `ssh -keygen -t rsa -b 4096 -c "correo"`: 
@@ -49,4 +50,22 @@ Despues de crear un tag es necesario hacer un pull y un push : `git push origin 
 `git clone "URL"`: Descarga proyecto publico.   
 En settings del repositorio se pueden agregar colaboradores por correo o por nombre de usuario.
 
-###  Flujo de Trabajo
+###  Flujo de Trabajo   
+`git config --global alias arbolito "log --graph --decorate"` : Creando un alias como comando de git.   
+`git arbolito` : Para llamrlo como comando de git.   
+`git merge "header"` : Haciendo un merge desde Master con header.   
+
+###  Pull request   
+Funcionalidad de github(en gitlab se llama Merge Request y Bitbucket push request) en la que un colaborador pide que revisen sus cambios antes de hacer merge a una rama, normalmente master.   
+Al hacer un pull request se genera una conversación que pueden seguir los demas usuarios del repositorio, asi como autorizar los cambios.   
+El flujo es el siguiente:    
+* Se trabaja en una rama paralela los cambios que se desean (`git checkout -b "rama"`)   
+* Se hace un commit a la rama (`git commit -am "comentario"`)   
+* Se suban al remoto los cambios (`git push origin "rama"`)   
+* En github se hace el pull reques comparando la rama master con la rama de fix.   
+* Uno o varios colaboradores revisan que el codigo sea correcto y dan el feedback (en el chat del pull request)   
+* El colaborador hace los cambios que desea en la rama y vuelve a subir al remoto (automaticamente toma la historia de los cambios que se hagan en la rama al remoto)   
+* Se aceptan los cambios en Github.   
+* Se hace el merge al master desde Github.   
+
+
