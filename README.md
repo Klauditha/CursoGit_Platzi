@@ -74,3 +74,12 @@ un fork es como una bifurcación del repositorio completo, tiene una historia en
 Al hacer un fork de un proyecto en Github, te conviertes en dueño del repositorio fork, puedes trabajar en este con todos los permisos, pero es un repositorio completamente diferente, teniendo alguna historia en comun.   
 Los  forks son importantes porque es la manera en que funciona el OpenSource, ya que una persona puede no ser colaborador de un proyecto, pero puedes contribuir al mismo haciendo mejor SW que pueda ser utilizado por cualquiera.   
 Al hacer un fork, GitHub sabe que se hizo el fork del proyecto, por lo que se le permite al colaborador hacer pull request desde su repositorio.   
+
+###  Trabajando con + de 1 repositorio remoto    
+Cuando trabajas en un proyecto que existe en diferentes repositorios remotos (normalmente a causa de un fork) es muy probable que desees poder trabajar con ambos, para esto puedes crear un remoto adicional desde consola.   
+`git remote add "nombre_del_remoto" URL_DEL_REMOTO` .Ejemplo: git remote add "upstream" https://github.com/freddier/hyperblog       
+Al crear un remoto adicional podremos hacer pull desde el nuevo origen.   
+`git pull "remoto" "rama"` .Ejemplo: git pull upstream master   
+Este pull nos traerá los cambios del remoto por lo que estará al dia en el proyecto, el flujo del trabajo cambia, en adelante se estará trabajando haciendo pull desde el upstream y push al origen para pasar a hacer el pull request.   
+`git pull upstream master`   
+`git push origin master`   
