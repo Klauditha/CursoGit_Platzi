@@ -173,9 +173,18 @@ Para borrar archivos trackeados:
 `git rm --cached "nombre_archivo"`: los pasa a estado untracked.   
 `git rm --force "nombre_archivo"`: borrarlos directamente.   
 
-##  Git Cherry-pick
+##  Git Cherry-pick   
 `git cherry-pick "hash commit"`   
 `git cherry-pick --abort`: Abortar operación   
 
 Permite sacar cambios especificos de una rama y  mezclarlos en otra.
 Se usa el comando en la rama en la que se desea mezclar los cambios.
+
+##  Reconstruir commit con Amend  
+Puuede modificar el commit mas reciente (enmendar) en la misma rama:   
+`git add -A`: Para hacer uso de ammend los archivos deben estar en staging   
+`git commit --amend`: Remendar ultimo commit.   
+
+El comando anterior sirve para agregar archivos nuevos o actualizar el commit anterior y no generar commits innecesarios.
+También es una forma sencilla de editar comentarios al commit anterior.   
+
