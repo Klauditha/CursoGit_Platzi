@@ -11,6 +11,12 @@
 `history` : Muestra el listado de comandos utilizados.   
 `ESC+ SHIFT+ZZ` : Volver a la consola git.   
 
+### Buscar Archivos   
+`git grep "color"` : Busca donde esta la palabra color.   
+`git grep -n "color"` : indica en que linea se encuentra la palabra color.   
+`git grep -c "color"` : Cuenta la cantidad de veces que aparece en cada archivo la palabra color.   
+`git log -s "cabecera"` : Para buscar en el log la palabra "cabecera".   
+
 ## Comandos Llaves SSH en local
 `ssh -keygen -t rsa -b 4096 -c "correo"`: 
 - Crear llave
@@ -188,3 +194,22 @@ Puuede modificar el commit mas reciente (enmendar) en la misma rama:
 El comando anterior sirve para agregar archivos nuevos o actualizar el commit anterior y no generar commits innecesarios.
 También es una forma sencilla de editar comentarios al commit anterior.   
 
+##  Git Reset y Reflog: En caso de emergencia   
+`git reflog`   
+`git reset --HEAD soft`   
+`git reset --HEAD hard`   
+
+Git guarda todos los cambios aunque decidas borrarlos, al borrar un cambio lo que estas haciendo solo es actualizar la punta del branch, para gestionar estos puntos existe un mecanismo llamado "registros de referencia o reflogs".   
+La gestión de estos cambios es mediante los hashes de referencia (o ref) que son apuntadores a los commits.   
+
+`git reflog`: Para ver como se ha modificado la historia en el repositorio local.   
+
+Muchos comandos de Git aceptan un parametro para especificar una referencia o "ref", que es un puntero a un commit.  
+* Git checkout: Puedes moverte sin realizar ningun cambio al commit exacto de la referencia.
+    `git checkout eff544g`   
+
+* Git reset: hará que el ultimo commit sea el pasado por ref, usar este comando solo si sabes lo que estas haciendo:   
+    `git reset --hard eff554f`: Perdera todo lo que se encuentra en el staging y en el working directory y se moverá el HEAD al commit indicado.   
+    `git reset --soft eff554f`: Te recuperará todos los cambios que tengas diferentes al commit indicado, los agregará al staging area y moverá el HEAD al commit indicado.   
+    `git merge`: Puedes hacer merge de un commit en especifico, funciona igual que con un branch, pero te hace el merge del estado especifico del commit indicado.   
+    `git checkout master - git merge eff544f`: Fusionará en un nuevo commit la historia de master con el momento especifico en el que vive eff544f.   
