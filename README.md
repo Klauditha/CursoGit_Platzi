@@ -213,3 +213,14 @@ Muchos comandos de Git aceptan un parametro para especificar una referencia o "r
     `git reset --soft eff554f`: Te recuperará todos los cambios que tengas diferentes al commit indicado, los agregará al staging area y moverá el HEAD al commit indicado.   
     `git merge`: Puedes hacer merge de un commit en especifico, funciona igual que con un branch, pero te hace el merge del estado especifico del commit indicado.   
     `git checkout master - git merge eff544f`: Fusionará en un nuevo commit la historia de master con el momento especifico en el que vive eff544f.   
+
+##  Comandos y recursos colaborativos  
+`git shorlog -sn`: Muestra cuantos commit han hecho cada miembro del equipo.   
+`git shorlog -sn --all`: Muestra cuantos commit han hecho cada miembro del equipo incluso los eliminados.   
+`git shorlog -sn --all --no-merges`: Muestra cuantos commit han hecho cada miembro del equipo quitando los eliminados sin merge   
+`git config --global alias.stats "shortlog -sn --all --no-merges"`: Creando comando personalizado.   
+`git blame -c "ARCHIVO"`: Muestra quien hizo cada cosa linea por linea (con -c mas ordenado)   
+`git COMANDO --help`: Muestra como funciona el comando.  
+`git blame ARCHIVO -L34,53`: Muestra quien hizo cada cosa linea por linea en un rango de lineas especificado.  
+`git branch -r`: Ver ramas remotas.   
+`git branch -a`: Ver todas las ramas.   
