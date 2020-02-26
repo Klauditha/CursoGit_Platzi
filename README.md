@@ -172,3 +172,10 @@ Para eliminar todos los elementos del stash: `git stash clear`
 Para borrar archivos trackeados:
 `git rm --cached "nombre_archivo"`: los pasa a estado untracked.   
 `git rm --force "nombre_archivo"`: borrarlos directamente.   
+
+##  Git Cherry-pick
+`git cherry-pick "hash commit"`   
+`git cherry-pick --abort`: Abortar operación   
+
+Permite sacar cambios especificos de una rama y  mezclarlos en otra.
+Se usa el comando en la rama en la que se desea mezclar los cambios.
