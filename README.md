@@ -51,6 +51,7 @@ Despues de crear un tag es necesario hacer un pull y un push : `git push origin 
 `git branch`: ver ramas   
 `git show-branch`: ver ramas y su historia   
 `git push origin cabecera`: Subir rama al remoto   
+`git branch nuevafuncionalidad`: Crear rama
 
 ##  Multiples colaboradores en GitHub
 `git clone "URL"`: Descarga proyecto publico.   
